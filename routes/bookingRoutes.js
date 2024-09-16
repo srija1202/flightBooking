@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const { createBooking, getAllBookings, cancelBooking, createPaymentIntent } = require('../controllers/bookingController');
+const { createBooking, getBookingsByUserId, cancelBooking, createPaymentIntent } = require('../controllers/bookingController');
 const { authenticateToken } = require('../middleware/authMiddleware');
 
 // Route to create a booking
 router.post('/createBookings', authenticateToken, createBooking);
 
 // Route to get all bookings
-router.get('/getBookings', authenticateToken, getAllBookings);
+router.get('/getBookings/:userId', authenticateToken, getBookingsByUserId);
 
 // Route to cancel a booking
 router.post('/cancelBooking', authenticateToken, cancelBooking);

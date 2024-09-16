@@ -119,12 +119,11 @@ exports.createBooking = async (req, res) => {
 };
 
 // Get all bookings with optional status filtering
-exports.getAllBookings = async (req, res) => {
-  const { status } = req.query; // Optional filter
+exports.getBookingsByUserId = async (req, res) => {
+  const { userId } = req.params; // Get userId from route parameters
 
   try {
-    const filter = status ? { status } : {};
-    const bookings = await Booking.find(filter).populate('flight').populate('user');
+    const bookings = await Booking.find({ user: userId }).populate('user');
 
     res.status(200).json(bookings);
   } catch (error) {
