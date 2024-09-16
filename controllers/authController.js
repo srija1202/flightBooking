@@ -35,7 +35,7 @@ const register = async (req, res) => {
     const user = new User({ firstName, lastName, phoneNumber, email, password: hashedPassword, country, activationToken });
 
     // Send activation email
-    const activationLink = `http://localhost:5173/activate/${activationToken}`;
+    const activationLink = `https://leafy-haupia-3bcd35.netlify.app/activate/${activationToken}`;
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,

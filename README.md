@@ -96,20 +96,16 @@ These routes handle payment processing for bookings.
    - `DATABASE_URL`: URL for your database connection.
    - `PAYMENT_API_KEY`: API key for the payment provider.
 
-## 🧪 Testing the API
-
-You can use tools like [Postman](https://www.postman.com/) or [cURL](https://curl.se/) to test the API endpoints.
-
 ### Example: Register a new user
 ```bash
-curl -X POST http://localhost:5000/api/auth/register \
+curl -X POST https://flightbooking-5p50.onrender.com/api/auth/register \
   -H "Content-Type: application/json" \
   -d '{"email": "user@example.com", "password": "yourpassword"}'
 ```
 
 ### Example: Create a booking
 ```bash
-curl -X POST http://localhost:5000/api/bookings/createBookings \
+curl -X POST https://flightbooking-5p50.onrender.com/api/bookings/createBookings \
   -H "Authorization: Bearer <your-token>" \
   -H "Content-Type: application/json" \
   -d '{"flightId": "12345", "passengerInfo": {"name": "John Doe", "age": 30}}'
